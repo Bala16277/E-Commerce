@@ -4,7 +4,7 @@ public class OrderRequestDto {
 	
 	private Integer productId;
 	
-	private Integer quantity;
+	private Integer productQuantity;
 	
 	private Integer userId;
 
@@ -16,12 +16,12 @@ public class OrderRequestDto {
 		this.productId = productId;
 	}
 
-	public Integer getQuantity() {
-		return quantity;
+	public Integer getProductQuantity() {
+		return productQuantity;
 	}
 
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
+	public void setProductQuantity(Integer productQuantity) {
+		this.productQuantity = productQuantity;
 	}
 
 	public Integer getUserId() {
@@ -32,5 +32,4 @@ public class OrderRequestDto {
 		this.userId = userId;
 	}
 	
-
 }

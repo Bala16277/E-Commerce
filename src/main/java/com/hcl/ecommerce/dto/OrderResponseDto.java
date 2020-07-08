@@ -4,11 +4,15 @@ public class OrderResponseDto {
 
 	private Integer productId;
 
-	private Integer quantity;
+	private Integer productQuantity;
 
 	private Integer userId;
 	
 	private Double totalPrice;
+	
+	private String message;
+	
+	private int statusCode;
 
 	public Integer getProductId() {
 		return productId;
@@ -18,12 +22,12 @@ public class OrderResponseDto {
 		this.productId = productId;
 	}
 
-	public Integer getQuantity() {
-		return quantity;
+	public Integer getProductQuantity() {
+		return productQuantity;
 	}
 
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
+	public void setProductQuantity(Integer productQuantity) {
+		this.productQuantity = productQuantity;
 	}
 
 	public Integer getUserId() {
@@ -41,5 +45,23 @@ public class OrderResponseDto {
 	public void setTotalPrice(Double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public int getStatusCode() {
+		return statusCode;
+	}
+
+	public void setStatusCode(int statusCode) {
+		this.statusCode = statusCode;
+	}
+	
+	
 	
 }
