@@ -1,0 +1,32 @@
+package com.hcl.ecommerce.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hcl.ecommerce.dto.CategoryDto;
+import com.hcl.ecommerce.entity.Category;
+import com.hcl.ecommerce.repository.CategoryRepository;
+
+@Service
+public class CategoryServiceImpl implements CategoryService {
+	
+	@Autowired
+	CategoryRepository categoryRepository;
+	
+	public CategoryDto getById(Integer id) {
+		Optional<Category> categories = categoryRepository.findById(id);
+		if (categories.isPresent()) {
+			Category category = categories.get();
+			CategoryDto categoryDto = new CategoryDto();
+			BeanUtils.copyProperties(category, categoryDto);
+			return categoryDto;
+		} else
+			return null;
+	}
+	
+	
+
+}

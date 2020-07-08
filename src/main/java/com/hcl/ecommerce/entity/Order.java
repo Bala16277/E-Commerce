@@ -6,8 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "user_order")
 public class Order {
 	
 	@Id
@@ -18,7 +20,7 @@ public class Order {
 	@JoinColumn(name = "productId")
 	private Product product;
 	
-	private Integer quantity;
+	private Integer productQuantity;
 	
 	private Double totalPrice;
 	
@@ -42,12 +44,14 @@ public class Order {
 		this.product = product;
 	}
 
-	public Integer getQuantity() {
-		return quantity;
+	
+
+	public Integer getProductQuantity() {
+		return productQuantity;
 	}
 
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
+	public void setProductQuantity(Integer productQuantity) {
+		this.productQuantity = productQuantity;
 	}
 
 	public Double getTotalPrice() {

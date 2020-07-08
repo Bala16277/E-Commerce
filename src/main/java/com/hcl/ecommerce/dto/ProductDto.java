@@ -2,16 +2,25 @@ package com.hcl.ecommerce.dto;
 
 import com.hcl.ecommerce.entity.Category;
 
-public class ProductRequestDto {
-	
+public class ProductDto {
+
+	private Integer productId;
+
 	private String productName;
-	
+
 	private Double productPrice;
-	
+
 	private String productDesc;
-	
+
 	private Integer categoryId;
-	
+
+	public Integer getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Integer productId) {
+		this.productId = productId;
+	}
 
 	public String getProductName() {
 		return productName;
@@ -44,10 +53,5 @@ public class ProductRequestDto {
 	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
 	}
-	
-	
-
-
-
 	
 }
