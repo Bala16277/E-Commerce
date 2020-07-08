@@ -2,6 +2,8 @@ package com.hcl.ecommerce.service;
 
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,8 @@ import com.hcl.ecommerce.repository.CategoryRepository;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
+	
+	private static Logger logger = LoggerFactory.getLogger(CategoryServiceImpl.class);
 	
 	@Autowired
 	CategoryRepository categoryRepository;

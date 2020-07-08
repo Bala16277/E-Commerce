@@ -34,7 +34,7 @@ public class ProductServiceImpl implements ProductService {
 	public ProductResponseDto addProduct(ProductRequestDto productRequestDto) throws IllegalAccessException, InvocationTargetException {
 		logger.info("Inside addproduct method of product service");
 		ProductResponseDto productResponseDto = new ProductResponseDto();
-		System.out.println("ProductRequestDto=========: "+productRequestDto.getProductName());
+		logger.info("ProductRequestDto=========: "+productRequestDto.getProductName());
 		Product product = new Product();
 		Category category = new Category();
 		category = categoryRepository.findByCategoryId(productRequestDto.getCategoryId());
