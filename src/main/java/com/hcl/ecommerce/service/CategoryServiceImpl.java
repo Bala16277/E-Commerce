@@ -27,6 +27,7 @@ public class CategoryServiceImpl implements CategoryService {
 			Category category = categories.get();
 			CategoryDto categoryDto = new CategoryDto();
 			BeanUtils.copyProperties(category, categoryDto);
+			logger.info("category dto:::::::: "+categoryDto);
 			return categoryDto;
 		} else
 			return null;
