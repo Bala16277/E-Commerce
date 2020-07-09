@@ -21,6 +21,7 @@ public class CategoryServiceImpl implements CategoryService {
 	CategoryRepository categoryRepository;
 	
 	public CategoryDto getById(Integer id) {
+		logger.info("Getting category by id:::::::::::::::: ");
 		Optional<Category> categories = categoryRepository.findById(id);
 		if (categories.isPresent()) {
 			Category category = categories.get();

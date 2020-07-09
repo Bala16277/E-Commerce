@@ -36,7 +36,7 @@ public class ProductServiceImpl implements ProductService {
 		ProductResponseDto productResponseDto = new ProductResponseDto();
 		logger.info("ProductRequestDto=========: "+productRequestDto.getProductName());
 		Product product = new Product();
-		Category category = new Category();
+		Category category;
 		category = categoryRepository.findByCategoryId(productRequestDto.getCategoryId());
 		BeanUtils.copyProperties(product,productRequestDto);
 		BeanUtils.copyProperty(product,"category", category);

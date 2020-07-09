@@ -34,13 +34,13 @@ public class OrderController {
 	@PostMapping("/buyProducts")
 	public ResponseEntity<OrderResponseDto> buyProducts(@RequestBody OrderRequestDto orderRequestDto) throws IllegalAccessException, InvocationTargetException {
 		logger.info("Inside buy order method:::::::::: ");
-		return new ResponseEntity<OrderResponseDto>(orderService.buyProduct(orderRequestDto),HttpStatus.OK);
+		return new ResponseEntity<>(orderService.buyProduct(orderRequestDto),HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<List<OrderDto>> getOrdersByUserId(@RequestParam Integer userId) throws IllegalAccessException, InvocationTargetException {
 		logger.info("Inside buy order method:::::::::: ");
 		List<OrderDto> orderDtos = orderService.getOrdersByUserId(userId);
-		return new ResponseEntity<List<OrderDto>>(orderDtos,HttpStatus.OK);
+		return new ResponseEntity<>(orderDtos,HttpStatus.OK);
 	}
 }

@@ -2,11 +2,11 @@ package com.hcl.ecommerce.dto;
 
 public class OrderResponseDto {
 
-	private Integer productId;
+	private Integer productName;
 
 	private Integer productQuantity;
 
-	private Integer userId;
+	private Integer userName;
 	
 	private Double totalPrice;
 	
@@ -14,12 +14,21 @@ public class OrderResponseDto {
 	
 	private int statusCode;
 
-	public Integer getProductId() {
-		return productId;
+
+	public Integer getProductName() {
+		return productName;
 	}
 
-	public void setProductId(Integer productId) {
-		this.productId = productId;
+	public void setProductName(Integer productName) {
+		this.productName = productName;
+	}
+
+	public Integer getUserName() {
+		return userName;
+	}
+
+	public void setUserName(Integer userName) {
+		this.userName = userName;
 	}
 
 	public Integer getProductQuantity() {
@@ -30,13 +39,7 @@ public class OrderResponseDto {
 		this.productQuantity = productQuantity;
 	}
 
-	public Integer getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
+	
 
 	public Double getTotalPrice() {
 		return totalPrice;

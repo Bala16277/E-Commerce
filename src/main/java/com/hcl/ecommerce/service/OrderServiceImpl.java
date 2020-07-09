@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import com.hcl.ecommerce.controller.OrderController;
 import com.hcl.ecommerce.dto.OrderDto;
 import com.hcl.ecommerce.dto.OrderRequestDto;
 import com.hcl.ecommerce.dto.OrderResponseDto;
@@ -38,10 +37,11 @@ public class OrderServiceImpl implements OrderService {
 	ProductRepository productRepository;
 
 	public OrderResponseDto buyProduct(OrderRequestDto orderRequestDto) throws IllegalAccessException, InvocationTargetException {
+		logger.info("Inside buy product method:::::: ");
 		OrderResponseDto orderResponseDto = new OrderResponseDto();
 		Order order = new Order();
-		User user = new User();
-		Product product = new Product();
+		User user;
+		Product product;
 		user = userRepository.findByUserId(orderRequestDto.getUserId());
 		product = productRepository.findByProductId(orderRequestDto.getProductId());
 		BeanUtils.copyProperties(order, orderRequestDto);
@@ -50,8 +50,8 @@ public class OrderServiceImpl implements OrderService {
 		order.setTotalPrice(orderRequestDto.getProductQuantity()*product.getProductPrice());
 		orderRepository.save(order);
 		BeanUtils.copyProperties(orderResponseDto, order);
-		BeanUtils.copyProperty(orderResponseDto, "productId", order.getProduct().getProductId());
-		BeanUtils.copyProperty(orderResponseDto, "userId", order.getUser().getUserId());
+		BeanUtils.copyProperty(orderResponseDto, "productName", order.getProduct().getProductName());
+		BeanUtils.copyProperty(orderResponseDto, "userName", order.getUser().getUserName());
 		orderResponseDto.setMessage("Order has been placed successfully");
 		orderResponseDto.setStatusCode(HttpStatus.CREATED.value());
 		return orderResponseDto;
@@ -70,10 +70,7 @@ public class OrderServiceImpl implements OrderService {
 			orderDtos.add(orderDto);
 		}
 		
-		
-		
 		return orderDtos;
-		
 		
 	}
 	

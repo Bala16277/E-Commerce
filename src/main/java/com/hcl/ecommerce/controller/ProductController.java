@@ -31,16 +31,16 @@ public class ProductController {
 	
 	@PostMapping("/")
 	public ResponseEntity<ProductResponseDto> addProduct(@RequestBody ProductRequestDto productRequestDto) throws IllegalAccessException, InvocationTargetException {
-		logger.info("Inside add product method of controller ");
+		logger.info("Inside add product method of product controller::::::::::::::::::: ");
 		ProductResponseDto productResponseDto = productService.addProduct(productRequestDto);
-		return new ResponseEntity<ProductResponseDto>(productResponseDto,HttpStatus.CREATED);
+		return new ResponseEntity<>(productResponseDto,HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/search")
 	public ResponseEntity<List<ProductDto>> searchProducts(@RequestParam String productName) throws IllegalAccessException, InvocationTargetException {
 		logger.info("Inside add product method of controller ");
 		List<ProductDto> productDtos = productService.searchProduct(productName);
-		return new ResponseEntity<List<ProductDto>>(productDtos, HttpStatus.OK);
+		return new ResponseEntity<>(productDtos, HttpStatus.OK);
 	}
 
 }

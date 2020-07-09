@@ -1,7 +1,5 @@
 package com.hcl.ecommerce.dto;
 
-import com.hcl.ecommerce.entity.Category;
-
 public class ProductRequestDto {
 	
 	private String productName;
