@@ -48,14 +48,15 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	public List<ProductDto> searchProduct(String productName) throws IllegalAccessException, InvocationTargetException {
-
+		logger.info("Inside search product method of service implemention:::::::: ");
 		List<Product> products = productRepository.findByProductNameContains(productName);
 		List<ProductDto> productDtos = new ArrayList<>();
 		for (Product product : products) {
 			ProductDto productDto = new ProductDto();
 			BeanUtils.copyProperties(productDto, product);
-			logger.info("Category Id::::::::::::: "+product.getCategory().getCategoryId());
+			logger.info("Category Id:::::: "+product.getCategory().getCategoryId());
 			BeanUtils.copyProperty(productDto, "categoryId", product.getCategory().getCategoryId());
+			logger.info("Category Id:::::: "+product.getCategory().getCategoryId());
 			productDtos.add(productDto);
 		}
 		return productDtos;

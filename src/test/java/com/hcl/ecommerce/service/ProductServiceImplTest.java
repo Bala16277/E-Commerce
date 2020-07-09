@@ -2,8 +2,7 @@ package com.hcl.ecommerce.service;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.jboss.logging.Logger;
+	import org.jboss.logging.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +12,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.hcl.ecommerce.dto.ProductDto;
 import com.hcl.ecommerce.dto.ProductRequestDto;
 import com.hcl.ecommerce.dto.ProductResponseDto;
 import com.hcl.ecommerce.entity.Category;
@@ -56,6 +56,8 @@ public class ProductServiceImplTest {
 			productRequestDto.setProductPrice(product.getProductPrice());
 			productRequestDto.setProductName(product.getProductName());
 			productResponseDto = productServiceImpl.addProduct(productRequestDto);
+			logger.info("after the test method::::::::::: ");
+			logger.info(productResponseDto.getMessage());
 			Assert.assertNotNull(productResponseDto);
 			Assert.assertEquals("Product has been added successfully", productResponseDto.getMessage());
 			
@@ -67,26 +69,36 @@ public class ProductServiceImplTest {
 
 	@Test
 	public void testSearchProduct() {
+		try {
 		Category category = new Category();
 		category.setCategoryId(1);
 		category.setCategoryName("laptop");
 		Product product = new Product();
-		product.setProductId(1);
-		product.setProductName("hp laptop");
-		product.setProductPrice(123.00);
+		product.setProductId(18);
+		product.setProductName("dell");
+		product.setProductDesc("laptop");
+		product.setProductPrice(1234.00);
 		product.setCategory(category);
 
 		Product product1 = new Product();
-		product.setProductId(2);
-		product.setProductName("acer laptop");
-		product.setProductPrice(232.00);
-		product.setCategory(category);
+		product1.setProductId(19);
+		product1.setProductName("dell");
+		product1.setProductDesc("pc");
+		product1.setProductPrice(1243.00);
+		product1.setCategory(category);
 
-		List<Product> products = new ArrayList();
+		List<Product> products = new ArrayList<>();
 		products.add(product);
 		products.add(product1);
-
-		Mockito.when(productRepository.findByProductNameContains("laptop")).thenReturn(products);
+		logger.info("products list::::::::::: "+products.get(0).getProductId());
+		Mockito.when(productRepository.findByProductNameContains("dell")).thenReturn(products);
+		List<ProductDto> productDtos = productServiceImpl.searchProduct("dell"); 
+		Assert.assertNotNull(productDtos);
+		Assert.assertEquals(products.get(0).getProductId(), productDtos.get(0).getProductId());
+		}
+		catch (Exception e) {
+			logger.warn(e.getMessage());
+		}
 
 	}
 

@@ -2,32 +2,31 @@ package com.hcl.ecommerce.dto;
 
 public class OrderResponseDto {
 
-	private Integer productName;
+	private String productName;
 
 	private Integer productQuantity;
 
-	private Integer userName;
-	
+	private String userName;
+
 	private Double totalPrice;
-	
+
 	private String message;
-	
+
 	private int statusCode;
 
-
-	public Integer getProductName() {
+	public String getProductName() {
 		return productName;
 	}
 
-	public void setProductName(Integer productName) {
+	public void setProductName(String productName) {
 		this.productName = productName;
 	}
 
-	public Integer getUserName() {
+	public String getUserName() {
 		return userName;
 	}
 
-	public void setUserName(Integer userName) {
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
@@ -38,8 +37,6 @@ public class OrderResponseDto {
 	public void setProductQuantity(Integer productQuantity) {
 		this.productQuantity = productQuantity;
 	}
-
-	
 
 	public Double getTotalPrice() {
 		return totalPrice;
@@ -64,7 +61,5 @@ public class OrderResponseDto {
 	public void setStatusCode(int statusCode) {
 		this.statusCode = statusCode;
 	}
-	
-	
-	
+
 }
